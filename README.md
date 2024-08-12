@@ -9,17 +9,23 @@
 
 ## 1) Engine
 ### Control panel:
-![EngineControlPanel](Images/README/EnginePanel.jpg)
+ ![EngineControlPanel](Images/README/EnginePanel.jpg)
 1) Engine state label - "RUNNING/STOPPED
 2) Input Accelerator Pedal Position to define set engine RPM
 3) Switch to simulate engine fault
 4) Switch to simulate low oil pressure
 
 ### Calculations:
+- The engine state is determined based on the ignition position sent from the Body module. Frame transmission and some calculations are performed when the ignition is on, but all simulations are only executed in the running mode (after the engine starts).
+- The input signal from the accelerator pedal sensor is used to determine the target engine RPM. Based on this RPM and the selected gear (signal from the Body module), the actual RPM is simulated using a simple proportional controller (P-type).
+- The vehicle speed is determined based on the actual RPM and the selected gear.
+- The coolant temperature is determined based on the actual RPM and engine load. There are four types of calculations: standard heating (up to 90°C), overheating (reduced heating coefficient simulating thermostat opening), standard cooling (after the engine is turned off), and cooling during overheating (cooling down to 90°C if the engine RPM does not exceed 5000 RPM).
+- Fuel consumption (and the simulated decrease in fuel level in the Body module) is calculated based on the accelerator pedal position and the current gear.
+Additionally, it is possible to simulate engine failure or low oil pressure using corresponding switches.
 
 ## 2) Body
 ### Control panel:
-![BodyControlPanel](Images/README/BodyPanel.jpg)
+ ![BodyControlPanel](Images/README/BodyPanel.jpg)
 1) Parking lights
 2) Low beam lights
 3) High beam lights
@@ -39,29 +45,44 @@
 17) Gear selector
 
 ### Calculations:
+- All calculations are performed when the ignition is on or after the engine start (with the exception of the ability to turn on the hazard lights).
+- The module simulates the change in battery voltage (12V with the ignition on or 14.3V after the engine start).
+- The operation of the turn signals and hazard lights is controlled by a separate Timer.
+- The headlights can be set to either stay on continuously or flash (activating the flashing mode disables the continuous mode).
+- The fog lights can be activated with specific buttons and work when the ignition and headlights are on.
+- The parking brake is a simple switch.
+- The drive mode selector allows you to choose between Comfort, Auto, Dynamic, and Individual modes.
+- The gear selector can be set to N, 1, 2, 3, 4, 5, 6, R.
 
 ## 3) Dashboard 
 ### Control panel:
-![DashboardControlPanel](Images/README/DashboardPanel.jpg)
+ ![DashboardControlPanel](Images/README/DashboardPanel.jpg)
 1) Driving mode color backlight
-2) Low oil pressure light
-3) Check engine light
-4) Low baterry voltage light
-5) High coolant temperature light
-6) Parking lights light
-7) Low beam lights light
-8) High beam lights light
-9) Front fog lights light
-10) Rear fog light light
-11) Handbrake light
-12) Low fuel level light
-13) Blinkers lights
+2) Low oil pressure indicator
+3) Check engine indicator
+4) Low baterry voltage indicator
+5) High coolant temperature indicator
+6) Parking lights indicator
+7) Low beam lights indicator
+8) High beam lights indicator
+9) Front fog lights indicator
+10) Rear fog light indicator
+11) Handbrake indicator
+12) Low fuel level indicator
+13) Blinkers indicator
 14) Tachometer
 15) Speedometer
 16) Coolant temperature gauge
 17) Fuel level gauge
 
 ### Calculations:
+- The color of the instrument cluster backlight is determined based on the driving mode (from the Body module).
+- The low battery voltage indicator lights up when the voltage drops below 13V.
+- The low fuel level indicator lights up when the fuel level is below 20 liters.
+- The high engine temperature indicator lights up when the temperature exceeds 110°C.
+- The remaining icons are controlled directly by receiving an on/off signal from the CAN bus.
+- Signals for engine RPM, vehicle speed, and engine temperature are sent from the Engine module.
+- The fuel level signal is sent from the Body module.
 
 ## AEC control panel 
 Under development
