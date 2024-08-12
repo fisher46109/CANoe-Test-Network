@@ -1,0 +1,135 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "BodyCAN_Messages.can" 
+}
+
+variables {  
+}
+
+// Calculations ///////////////////////////////////////////////////////////////////////////////
+int calculate_blinker_state (int swt_hazard, int swt_blinker){
+  if (swt_hazard == 1) return 3; // All blinkers
+  if (swt_blinker == 1) return 1; // Left blinkers
+  else if (swt_blinker == -1) return 2; //Right blinkers
+  else return 0; // No blinkers 
+}
+
+int calculate_HB_lights_state(int swt_HB_blink, int swt_HB_const){
+  if (swt_HB_blink && swt_HB_const){
+    @sysvar::BodyState::HB_ConstSwitch = 0;
+  }
+  if (swt_HB_blink || swt_HB_const) return 1;
+  else return 0;
+}
+
+int calculate_front_fog_lights_state(int swt_front_fog, int swt_headlights, int swt_ignition){
+  if (swt_front_fog == 0) return 0;
+  else {
+    if (swt_headlights >= 1 && swt_ignition >= 1) return 1;
+    else return 0;
+  }
+}
+
+int calculate_rear_fog_lights_state(int swt_rear_fog, int swt_headlights, int swt_ignition){
+  if (swt_rear_fog == 0) return 0;
+  else {
+    if (swt_headlights >= 1 && swt_ignition >= 1) return 1;
+    else return 0;
+  }
+}
+
+int simulate_baterry_voltage(int ign_status, int eng_run_status){
+  if (ign_status <= 1) return 12000;
+  else {
+    if (eng_run_status == 0) return 12000;
+    else return 14300;
+  }
+}
+
+double calculate_fuel_level(void){
+  double fuel_level;
+  fuel_level = @sysvar::BodyState::FuelLevel;
+  body_states_msg.Body_Fuel_Level = (int)fuel_level;
+  return fuel_level;
+}
+
+// Outputs handling ///////////////////////////////////////////////////////////////////////////
+void set_blinkers (int calc_blinkers, int state){
+  
+  if (state == 0) body_blink_msg.Body_Blinker = 0x00;
+  else body_blink_msg.Body_Blinker = calc_blinkers;
+  
+  switch(calc_blinkers){
+    case 0: 
+      @sysvar::Blinkers::FL_Blinker = 0;
+      @sysvar::Blinkers::RL_Blinker = 0;
+      @sysvar::Blinkers::FR_Blinker = 0;
+      @sysvar::Blinkers::RR_Blinker = 0;
+    break;
+    case 1:
+      @sysvar::Blinkers::FL_Blinker = state;
+      @sysvar::Blinkers::RL_Blinker = state;
+      @sysvar::Blinkers::FR_Blinker = 0;
+      @sysvar::Blinkers::RR_Blinker = 0;
+    break;
+    case 2:
+      @sysvar::Blinkers::FR_Blinker = state;
+      @sysvar::Blinkers::RR_Blinker = state;
+      @sysvar::Blinkers::FL_Blinker = 0;
+      @sysvar::Blinkers::RL_Blinker = 0;
+    break;
+    case 3:
+      @sysvar::Blinkers::FL_Blinker = state;
+      @sysvar::Blinkers::RL_Blinker = state;
+      @sysvar::Blinkers::FR_Blinker = state;
+      @sysvar::Blinkers::RR_Blinker = state;
+    break;
+  }
+}
+
+void no_parking_lights(void) {
+  body_states_msg.Body_Position_Lights = 0x00;
+  @sysvar::BodyState::LeftParkingLightState = 0;
+  @sysvar::BodyState::RightParkingLightState = 0; 
+}
+
+void set_left_parking_lights(void) {
+  body_states_msg.Body_Position_Lights = 0x02;
+  @sysvar::BodyState::LeftParkingLightState = 1;
+  @sysvar::BodyState::RightParkingLightState = 0;
+}
+
+void set_right_parking_lights(void) {
+  body_states_msg.Body_Position_Lights = 0x03;
+  @sysvar::BodyState::LeftParkingLightState = 0;
+  @sysvar::BodyState::RightParkingLightState = 1;
+}
+
+void set_all_parking_lights(void) {
+  body_states_msg.Body_Position_Lights = 0x01;
+  @sysvar::BodyState::LeftParkingLightState = 1;
+  @sysvar::BodyState::RightParkingLightState = 1;
+}
+
+void set_LB_lights(int state){
+  body_states_msg.Body_Low_Beam = state;
+  @sysvar::BodyState::LB_LightsState = state;
+}
+
+void set_HB_lights(int state){
+  if (state <= 0) state = 0;
+  body_states_msg.Body_High_Beam = state;
+  @sysvar::BodyState::HB_LightsState = state;
+}
+
+void set_front_fog_lights(int state){
+  body_states_msg.Body_Front_Fog = state;
+  @sysvar::BodyState::FrontFogLightsState = state;
+}
+
+void set_rear_fog_lights(int state){
+  body_states_msg.Body_Rear_Fog = state;
+  @sysvar::BodyState::RearFogLightState= state;
+}
+

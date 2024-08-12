@@ -1,0 +1,90 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "EngineCAN_Messages.can"
+}
+
+variables
+{
+  int act_rpm;
+  double k[8] = {0.9, 0.65, 0.55, 0.5, 0.3, 0.1, 0.05, 0.6}; // factors for RMP P-regulator for N-1:6-R gears 
+  double main_speed_factor = 40;
+  double gear_factor[8] = {0, 3.7, 2.1, 1.4, 1.2, 1.0 ,0.8, 3.4};
+  
+  double init_clt = 20;
+  double k_clt_cooling = -0.001;
+  double k_clt_cooling_over_90 = -0.01;
+  double k_clt_warming = 0.095;
+  double gear_k_clt[8] = {0.4, 0.1, 0.15, 0.2, 0.3, 0.4, 0.8, 0.15};
+  double thermostat_additional_factor = 0.1;
+  
+  double iddle_fuel_consumption = 0.8;
+  double gear_k_fuel_consumption[8] = {0.01, 0.02, 0.04, 0.09, 0.12, 0.18, 0.20, 0.22}; 
+}
+
+int calculate_running_state(int ignition_value){
+  int running_st;
+  ignition_value <= 1 ? running_st = 0 : running_st = 1;
+  set_engine_running_can_signal(running_st);
+  return running_st;
+}
+
+int calculate_rpm(int running_state, int app_sensor, int gear){
+  int des_rpm, delta_rpm;
+  if (running_state == 0) return 0;
+  // Destination RPM by APP
+  des_rpm = 62 * app_sensor + 800;  //y= ((7000-800) / 100) + 800
+  //P-regulator calculation
+  delta_rpm = k[gear] * (des_rpm - act_rpm);
+  return (act_rpm + delta_rpm);
+}
+
+int calculate_speed(int running_state, int act_rpm, int act_gear){
+  double speed;
+  if (running_state == 0) return 0;
+  if (act_gear == 0) speed = 0;
+  else speed = act_rpm / (main_speed_factor * gear_factor[act_gear]);
+  return ((int)speed);
+}
+
+double calculate_clt(int running_state, int act_rpm, int act_gear, double act_clt){
+  double delta_clt, k_clt_by_load, calculated_clt;  
+  if (running_state == 0){ //cooling
+    delta_clt = k_clt_cooling; 
+  } 
+  else { //warming up
+    delta_clt = k_clt_warming * gear_k_clt[act_gear] * (double)act_rpm / 1000;   
+  }
+  if (act_clt < 90) calculated_clt = act_clt + delta_clt;
+  else {
+    // Limiter warming
+    if(act_rpm > 5000) calculated_clt = act_clt + delta_clt * thermostat_additional_factor;
+    // Cooling to 90*C
+    else calculated_clt = act_clt + k_clt_cooling_over_90;
+  }
+  if (calculated_clt < init_clt) calculated_clt = init_clt;
+  return calculated_clt;
+} 
+
+double calculate_fuel_consumption(int running_state, int app_sens, int act_gear){
+  if (running_state == 0) return 0;
+  else {
+    if(app_sens == 0) return iddle_fuel_consumption;
+    else return (app_sens * gear_k_fuel_consumption[act_gear]);
+  }
+  }
+
+void simulate_fuel_level(double fuel_consumption){
+  double act_fuel_level, fuel_reduction_for_100ms;
+  act_fuel_level = @sysvar::BodyState::FuelLevel;
+  //fuel consumption in l/h and updating period = 100ms
+  fuel_reduction_for_100ms = fuel_consumption / 36000;
+  @sysvar::BodyState::FuelLevel = act_fuel_level - fuel_reduction_for_100ms;
+}
+
+void set_eng_running_label(int running_state){
+  if (running_state == 0) setControlProperty("Engine", "EngRunningLabel","Text", "Engine: STOPPED"); 
+  else setControlProperty("Engine", "EngRunningLabel","Text", "Engine: RUNNING");
+}
+
+

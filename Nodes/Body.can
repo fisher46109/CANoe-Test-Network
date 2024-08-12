@@ -1,0 +1,209 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "BodyFunctions.can"
+}
+
+variables
+{
+  // Inputs from body
+  int ignition_swt;
+  int DS_value; 
+  int hazard_lights_swt;
+  int blinkers_lights_swt;
+  int headlights_swt;
+  int HB_blink_swt;
+  int HB_const_swt;
+  int front_fog_swt;
+  int rear_fog_swt;
+  int act_gear;
+  double fuel_level;
+  
+  // Inputs from CAN
+  int eng_running;
+  
+  // Calculated values
+  int calculated_blinkers;
+  int calculated_lights; //TODO remove?
+  int calculated_HB_lights;
+  int calculated_front_fog_lights;
+  int calculated_rear_fog_lights;
+  int calculated_baterry_voltage;
+  
+  // Timer for blinkers
+  msTimer BlinkTimer; 
+  const int blink_period_ms = 750;
+  int blinkers_state = 0;
+  
+  // Timer for periodic sending body state message
+  msTimer BodyStateTimer;
+  const int state_update_period_ms = 250;
+
+  // Timer for periodic checking body states
+  int updating_timer_period = 100; 
+  msTimer UpdatingTimer;
+}
+
+on start { 
+  openPanel("Body");
+}
+
+// Timers /////////////////////////////////////////////////////////////////////
+on timer UpdatingTimer {
+  if(ignition_swt == 0 && hazard_lights_swt == 0) return; // Deactivate timer if ignition and hazard lights off
+  
+  // Voltage handling (with simulation)
+  calculated_baterry_voltage = simulate_baterry_voltage(ignition_swt, eng_running);
+  set_voltage_CAN_signal(calculated_baterry_voltage);
+  // Blinkers handling
+  calculated_blinkers = calculate_blinker_state(hazard_lights_swt, blinkers_lights_swt);
+  if (calculated_blinkers == 0) {
+    cancelTimer(BlinkTimer);
+    set_blinkers(0, 0);
+  }
+  if (calculated_blinkers != 0 && !isTimerActive(BlinkTimer)){
+    blinkers_state = 1;
+    setTimer(BlinkTimer, 0); 
+  }
+  // HB lights handling
+  calculated_HB_lights = calculate_HB_lights_state(HB_blink_swt, HB_const_swt);
+  set_HB_lights(calculated_HB_lights);
+  
+  // Front fog lights handling
+  calculated_front_fog_lights = calculate_front_fog_lights_state(front_fog_swt, headlights_swt, ignition_swt);
+  set_front_fog_lights(calculated_front_fog_lights);
+  
+  // Rear fog lights handling
+  calculated_rear_fog_lights = calculate_rear_fog_lights_state(rear_fog_swt, headlights_swt, ignition_swt);
+  set_rear_fog_lights(calculated_rear_fog_lights);
+  
+  // Fuel level handling
+  fuel_level = calculate_fuel_level();
+  
+  set_gear_CAN_signal(act_gear);
+  setTimer(this, updating_timer_period);
+}
+
+on timer BodyStateTimer {
+  if(ignition_swt == 0 && hazard_lights_swt == 0) return; // Deactivate timer if ignition and hazard lights off
+  output(body_blink_msg);
+  output(body_states_msg);
+  setTimer(this, state_update_period_ms); 
+}
+
+on timer BlinkTimer {
+  
+  if(ignition_swt == 0 && hazard_lights_swt == 0) return; // Deactivate timer if ignition and hazard lights off
+  set_blinkers(calculated_blinkers, blinkers_state);
+  blinkers_state ? blinkers_state = 0 : blinkers_state = 1;
+  output(body_blink_msg);
+  setTimer(this, blink_period_ms);
+}
+
+// Messages ///////////////////////////////////////////////////////////////////
+
+on message Eng_States {
+  eng_running = this.Eng_Running;  
+}
+
+// Input System Variables /////////////////////////////////////////////////////
+on sysvar BodyState::IgnitionStatus {
+  ignition_swt = @this;
+  set_Ignition_CAN_signal(ignition_swt); 
+  if (ignition_swt != 0) {
+    wake_up_systems();
+    if (headlights_swt >= 1) set_LB_lights(headlights_swt-1);
+  }
+  else {
+    set_LB_lights(0);
+    set_front_fog_lights(0);
+    set_rear_fog_lights(0);
+    set_empty_body_states_msg();
+    output(body_states_msg); //last state message before close  
+    close_systems();
+  }
+}
+
+on sysvar BodyState::DriveSelect {
+  DS_value = @sysvar::BodyState::DriveSelect;
+  set_DS_CAN_signal(DS_value);
+}
+
+on sysvar Blinkers::HazardLightsSwitch {
+  hazard_lights_swt = @this;
+  if (ignition_swt == 0) { 
+    if (hazard_lights_swt == 1) wake_up_systems();
+    else close_systems();
+  }
+}
+
+on sysvar Blinkers::BlinkerSwitch {
+  blinkers_lights_swt = @this;
+}
+
+on sysvar BodyState::LightsSwitch {
+  headlights_swt = @this; 
+  if (ignition_swt == 0){
+    if (headlights_swt >= 1) {
+      set_all_parking_lights();
+    }
+    else {
+      no_parking_lights();
+    }
+  }
+  else {
+    if (headlights_swt == 1) {
+      set_all_parking_lights();
+      set_LB_lights(0);
+    }  
+    else if (headlights_swt == 2) {
+      set_all_parking_lights();
+      set_LB_lights(1);
+    }
+    else {
+      no_parking_lights();
+      set_LB_lights(0);
+    }
+  }
+}
+
+on sysvar BodyState::HB_BlinkSwitch {
+  HB_blink_swt = @this;
+}
+
+on sysvar BodyState::HB_ConstSwitch {
+  HB_const_swt = @this;
+}
+
+on sysvar BodyState::FrontFogLightSwitch {
+  front_fog_swt = @this;
+}
+
+on sysvar BodyState::RearFogLightSwitch {
+  rear_fog_swt = @this;
+}
+
+on sysvar BodyState::HandbrakeSwitch {
+  set_handbrake_CAN_signal(@this);
+}
+
+on sysvar BodyState::Gear {
+  act_gear = @this;
+  
+}
+
+// Functions ////////////////////////////////////////////////////////////////////
+void wake_up_systems(void){
+  setTimer(UpdatingTimer, updating_timer_period);  
+  setTimer(BodyStateTimer, state_update_period_ms);
+}
+
+void close_systems(void){
+  cancelTimer(BlinkTimer);
+  cancelTimer(UpdatingTimer);  
+  cancelTimer(BodyStateTimer);
+  set_blinkers(0, 0);
+  set_LB_lights(0);
+  set_HB_lights(0);
+}
+

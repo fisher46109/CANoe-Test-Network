@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Dashboard">
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X6eae0478eafc5e43efe881ee83715bea86f7" ControlName="RPM_Gauge">
+      <Property Name="Name">X6eae0478eafc5e43efe881ee83715bea86f7</Property>
+      <Property Name="Size">455, 314</Property>
+      <Property Name="Location">87, 65</Property>
+      <Property Name="ScaleMin">0</Property>
+      <Property Name="ScaleMax">7000</Property>
+      <Property Name="LowerRangeLimit">0</Property>
+      <Property Name="UpperRangeLimit">0</Property>
+      <Property Name="MinColor">Black</Property>
+      <Property Name="MidColor">Black</Property>
+      <Property Name="MaxColor">Black</Property>
+      <Property Name="ScaleAngle">180</Property>
+      <Property Name="BackgroundColor">Transparent</Property>
+      <Property Name="LegendText">RPM</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt</Property>
+      <Property Name="IsTicksAdjustment">False</Property>
+      <Property Name="MainTicksNumber">7</Property>
+      <Property Name="CurrentPosition">0</Property>
+      <Property Name="LengthMainTicks">30</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;RPM;512;;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>0</Argument>
+        <Argument>7000</Argument>
+        <Argument>0</Argument>
+        <Argument>0</Argument>
+        <Argument>0</Argument>
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CanvasControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc9eee28beae4ee49f4eafb7ec5a6042332c1" ControlName="Canvas 1">
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc8bcbbb3e715ae452beb8c8e70a21e5b3a37" ControlName="fuel_warn_icon">
+        <Property Name="Name">Xc8bcbbb3e715ae452beb8c8e70a21e5b3a37</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">771, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\fuel_level.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X370dc786e93fde4880ebf26eead4d630fcea" ControlName="handbrake_icon">
+        <Property Name="Name">X370dc786e93fde4880ebf26eead4d630fcea</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">715, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\handbrake.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xda4af4feee125e46a5ebb09e4ac23f91878d" ControlName="oil_press_icon">
+        <Property Name="Name">Xda4af4feee125e46a5ebb09e4ac23f91878d</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">211, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\oil_press.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X3875cc13e2b1ee4357e9f75ec35625c02fcb" ControlName="check_engine_icon">
+        <Property Name="Name">X3875cc13e2b1ee4357e9f75ec35625c02fcb</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">267, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\check_engine.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X5ac987d1ecf48e4184ea22fed0a25f7dac9d" ControlName="baterry_voltage_icon">
+        <Property Name="Name">X5ac987d1ecf48e4184ea22fed0a25f7dac9d</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">323, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\voltage.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xd3d39cd2e1b31e4518ea9e0e5c797ef0198d" ControlName="CLT_icon">
+        <Property Name="Name">Xd3d39cd2e1b31e4518ea9e0e5c797ef0198d</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">379, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\clt.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X5c12ccade822be4bc4e85bde666355087233" ControlName="rear_fog_icon">
+        <Property Name="Name">X5c12ccade822be4bc4e85bde666355087233</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">659, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\rear_fog.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xec90ed01e1146e4b48ebfa2ed503d32fab45" ControlName="front_fog_icon">
+        <Property Name="Name">Xec90ed01e1146e4b48ebfa2ed503d32fab45</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">603, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\front_fog.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xdda59097e1428e4909ea93ae3a5a56502621" ControlName="HB_icon">
+        <Property Name="Name">Xdda59097e1428e4909ea93ae3a5a56502621</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">547, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\HB_lights.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xeec222eeed302e4dc8eb461eec8a935d97ba" ControlName="LB_icon">
+        <Property Name="Name">Xeec222eeed302e4dc8eb461eec8a935d97ba</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">491, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\LB_lights.jpg</Property>
+      </Object>
+      <Object Type="Vector.CANalyzer.Panels.Design.PictureBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xfcefb9afe5ca8e404feafb2e1ef59eb18376" ControlName="parking_lights_icon">
+        <Property Name="Name">Xfcefb9afe5ca8e404feafb2e1ef59eb18376</Property>
+        <Property Name="Size">50, 50</Property>
+        <Property Name="Location">435, 11</Property>
+        <Property Name="IsVisibleByLoad">False</Property>
+        <Property Name="ImageFile">..\Images\parking_lights.jpg</Property>
+      </Object>
+      <Property Name="Name">Xc9eee28beae4ee49f4eafb7ec5a6042332c1</Property>
+      <Property Name="Size">1035, 74</Property>
+      <Property Name="Location">26, 26</Property>
+      <Property Name="BackColor">Black</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CanvasControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X7ca8e721ee96de41abe8c90ed6f9a258d329" ControlName="col4">
+      <Property Name="Name">X7ca8e721ee96de41abe8c90ed6f9a258d329</Property>
+      <Property Name="Size">20, 553</Property>
+      <Property Name="Location">0, 0</Property>
+      <Property Name="BackColor">Blue</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CanvasControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xcb3afe81e4950e4d27eb97ce42ec2b3e640a" ControlName="col2">
+      <Property Name="Name">Xcb3afe81e4950e4d27eb97ce42ec2b3e640a</Property>
+      <Property Name="Size">20, 553</Property>
+      <Property Name="Location">1067, 0</Property>
+      <Property Name="BackColor">Blue</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CanvasControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc1039d4bebf6be40a8ea9b7ef4d6b2df89b6" ControlName="col3">
+      <Property Name="Name">Xc1039d4bebf6be40a8ea9b7ef4d6b2df89b6</Property>
+      <Property Name="Size">1087, 20</Property>
+      <Property Name="Location">0, 0</Property>
+      <Property Name="BackColor">Blue</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X261498b7e7110e497ae834de7e58ad8f1cd0" ControlName="Analog Gauge 4">
+      <Property Name="Name">X261498b7e7110e497ae834de7e58ad8f1cd0</Property>
+      <Property Name="Size">318, 189</Property>
+      <Property Name="Location">157, 338</Property>
+      <Property Name="ScaleMin">60</Property>
+      <Property Name="ScaleMax">120</Property>
+      <Property Name="LowerRangeLimit">60</Property>
+      <Property Name="UpperRangeLimit">100</Property>
+      <Property Name="MinColor">Red</Property>
+      <Property Name="MidColor">Black</Property>
+      <Property Name="MaxColor">Black</Property>
+      <Property Name="BackgroundColor">Transparent</Property>
+      <Property Name="LegendText">*C</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt</Property>
+      <Property Name="IsTicksAdjustment">False</Property>
+      <Property Name="MainTicksNumber">6</Property>
+      <Property Name="CurrentPosition">60</Property>
+      <Property Name="LengthMainTicks">17</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;CLT;2;;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>60</Argument>
+        <Argument>120</Argument>
+        <Argument>60</Argument>
+        <Argument>60</Argument>
+        <Argument>100</Argument>
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CanvasControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X1d343f13e249be44d2ebf1ae21555c7deed5" ControlName="col1">
+      <Property Name="Name">X1d343f13e249be44d2ebf1ae21555c7deed5</Property>
+      <Property Name="Size">1087, 20</Property>
+      <Property Name="Location">0, 533</Property>
+      <Property Name="BackColor">Blue</Property>
+      <Property Name="TabIndex">0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X600a7692e4428e41dde9255ef468e79fda8b" ControlName="LED Control 1">
+      <Property Name="Name">X600a7692e4428e41dde9255ef468e79fda8b</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">953, 128</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleRight</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 0, 50, 0&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;Lime&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOff">255, 0, 50, 0</Property>
+      <Property Name="UsedLEDColorOn">Lime</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;right_blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X6cfe29b8e8571e4f83ebbb0e4bd472ece216" ControlName="LED Control 2">
+      <Property Name="Name">X6cfe29b8e8571e4f83ebbb0e4bd472ece216</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">87, 128</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleLeft</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 0, 50, 0&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;Lime&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOff">255, 0, 50, 0</Property>
+      <Property Name="UsedLEDColorOn">Lime</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;left_blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X794787fae6a2de4c58e8b5ae84d25a8d3154" ControlName="Analog Gauge 3">
+      <Property Name="Name">X794787fae6a2de4c58e8b5ae84d25a8d3154</Property>
+      <Property Name="Size">312, 192</Property>
+      <Property Name="Location">623, 338</Property>
+      <Property Name="ScaleMin">0</Property>
+      <Property Name="ScaleMax">60</Property>
+      <Property Name="LowerRangeLimit">0</Property>
+      <Property Name="UpperRangeLimit">60</Property>
+      <Property Name="MinColor">Red</Property>
+      <Property Name="MidColor">Black</Property>
+      <Property Name="MaxColor">Black</Property>
+      <Property Name="BackgroundColor">Transparent</Property>
+      <Property Name="LegendText">l</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt</Property>
+      <Property Name="IsTicksAdjustment">False</Property>
+      <Property Name="MainTicksNumber">4</Property>
+      <Property Name="CurrentPosition">0</Property>
+      <Property Name="LengthMainTicks">18</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;FuelLevel;2;;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>0</Argument>
+        <Argument>60</Argument>
+        <Argument>0</Argument>
+        <Argument>0</Argument>
+        <Argument>60</Argument>
+      </Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.AnalogGaugeControl, Vector.CANalyzer.Panels.AnalogGauge, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xbbcd6bf9e2d44e4ec4e9af7e63b445d047fb" ControlName="Analog Gauge 2">
+      <Property Name="Name">Xbbcd6bf9e2d44e4ec4e9af7e63b445d047fb</Property>
+      <Property Name="Size">455, 314</Property>
+      <Property Name="Location">548, 65</Property>
+      <Property Name="ScaleMin">0</Property>
+      <Property Name="ScaleMax">220</Property>
+      <Property Name="LowerRangeLimit">0</Property>
+      <Property Name="UpperRangeLimit">100</Property>
+      <Property Name="MinColor">Black</Property>
+      <Property Name="MidColor">Black</Property>
+      <Property Name="MaxColor">Black</Property>
+      <Property Name="ScaleAngle">180</Property>
+      <Property Name="BackgroundColor">Transparent</Property>
+      <Property Name="LegendText">km/h</Property>
+      <Property Name="LegendTextFont">Microsoft Sans Serif, 8.25pt</Property>
+      <Property Name="IsTicksAdjustment">False</Property>
+      <Property Name="MainTicksNumber">11</Property>
+      <Property Name="CurrentPosition">0</Property>
+      <Property Name="LengthMainTicks">30</Property>
+      <Property Name="IsFrame">False</Property>
+      <Property Name="IsMargin">False</Property>
+      <Property Name="ScaleMargin">0</Property>
+      <Property Name="SymbolConfiguration">8;16;Dashboard;;;Speed;1;;;-1;;;Value;;;0</Property>
+      <Property Name="CriticalProps" Member="AAEAAAD/////AQAAAAAAAAAEAQAAAC9TeXN0ZW0uUmVmbGVjdGlvbi5NZW1iZXJJbmZvU2VyaWFsaXphdGlvbkhvbGRlcgcAAAAETmFtZQxBc3NlbWJseU5hbWUJQ2xhc3NOYW1lCVNpZ25hdHVyZQpTaWduYXR1cmUyCk1lbWJlclR5cGUQR2VuZXJpY0FyZ3VtZW50cwEBAQEBAAMIDVN5c3RlbS5UeXBlW10GAgAAAAUuY3RvcgYDAAAAXFZlY3Rvci5DQU5hbHl6ZXIuUGFuZWxzLkFuYWxvZ0dhdWdlLCBWZXJzaW9uPTE3LjMuOTEuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBgQAAAA2VmVjdG9yLkNBTmFseXplci5QYW5lbHMuRGVzaWduLkdhdWdlQ3JpdGljYWxQcm9wZXJ0aWVzBgUAAAAyVm9pZCAuY3RvcihEb3VibGUsIERvdWJsZSwgRG91YmxlLCBEb3VibGUsIERvdWJsZSkGBgAAAFAuY3RvcihTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlLCBTeXN0ZW0uRG91YmxlKQEAAAAKCw==">
+        <Argument>0</Argument>
+        <Argument>220</Argument>
+        <Argument>0</Argument>
+        <Argument>0</Argument>
+        <Argument>100</Argument>
+      </Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">1087, 553</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">255, 216, 216, 216</Property>
+  </Object>
+</Panel>

@@ -1,0 +1,93 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "EngineFunctions.can"
+}
+
+variables
+{
+  int ignition_status;
+  int running_state;
+  int check_engine_state;
+  int low_oil_press_state;
+  int app_sensor;
+  int act_gear;
+  int act_speed;
+  double act_clt;
+  double act_fuel_consumption;
+
+  // Timer for periodic sending engine state message
+  msTimer EngineStateTimer;
+  const int state_update_period_ms = 250;
+  
+  // Timer for periodic checking engine states
+  int updating_timer_period = 100; 
+  msTimer UpdatingTimer;
+}
+
+on start{
+  openPanel("Engine");
+  set_eng_running_label(0);
+  act_clt = init_clt;
+}
+
+// Timers /////////////////////////////////////////////////////////////////////
+on timer EngineStateTimer{
+  output(engine_states_msg);
+  setTimer(this, state_update_period_ms);
+}
+
+on timer UpdatingTimer {
+  // Engine running handling
+  running_state = calculate_running_state(ignition_status);
+  set_eng_running_label(running_state);
+  // RPM (by APP) calculation
+  act_rpm = calculate_rpm(running_state, app_sensor, act_gear);
+  set_rpm_can_signal(act_rpm);
+  // Speed calculation
+  act_speed = calculate_speed(running_state, act_rpm, act_gear);
+  set_speed_can_signal(act_speed);
+  // CLT calculation
+  act_clt = calculate_clt(running_state, act_rpm, act_gear, act_clt);
+  set_clt_can_signal(act_clt);
+  // Fuel consumption calculation (and fuel level reduction simulation) 
+  act_fuel_consumption = calculate_fuel_consumption(running_state, app_sensor, act_gear);
+  simulate_fuel_level(act_fuel_consumption);
+  set_check_engine_can_signal(check_engine_state);  
+  set_low_oil_press_can_signal(low_oil_press_state);  
+  
+  setTimer(this, updating_timer_period);
+}  
+
+// Messages /////////////////////////////////////////////////////////////////// 
+on message Body_States {
+  ignition_status = this.Body_Ign_Status;
+  if (ignition_status >= 1) wake_up_systems();
+  else close_systems();
+  act_gear = this.Body_Gear;
+}
+// Input System Variables /////////////////////////////////////////////////////
+
+on sysvar EngineState::CheckEngineSwt{
+  check_engine_state = @this;
+}
+
+on sysvar EngineState::LowOilPressSwt{
+  low_oil_press_state = @this;
+}
+
+on sysvar EngineState::APP_sens {
+  app_sensor = @this;
+}
+// Functions //////////////////////////////////////////////////////////////////
+void wake_up_systems(void){
+  setTimer(EngineStateTimer, state_update_period_ms);
+  setTimer(UpdatingTimer, updating_timer_period);
+}
+
+void close_systems(void){
+  set_empty_engine_states_msg();
+  output(engine_states_msg); //last state message before close
+  cancelTimer(EngineStateTimer);
+  cancelTimer(UpdatingTimer);
+}

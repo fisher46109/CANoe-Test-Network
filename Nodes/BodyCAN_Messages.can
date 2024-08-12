@@ -1,0 +1,44 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+}
+
+variables
+{
+  message Body_Blink body_blink_msg;
+  message Body_States body_states_msg;
+}
+
+
+void set_empty_body_states_msg(void){
+  int i;
+  for (i = 0; i < body_states_msg.dlc; i++){
+    body_states_msg.byte(i) = 0x00;  
+  }
+}
+
+void set_blinkers_can_signal(int value){
+  body_blink_msg.Body_Blinker = value;
+}
+
+void set_DS_CAN_signal(int value){
+  body_states_msg.Body_Drive_Select = value;
+} 
+
+void set_Ignition_CAN_signal(int value) {
+  body_states_msg.Body_Ign_Status = value;
+}
+
+void set_voltage_CAN_signal(int mv_voltage) {
+  body_states_msg.Body_Baterry_Voltage = (mv_voltage/60);
+}
+
+void set_handbrake_CAN_signal(int state){
+  body_states_msg.Body_Handbrake = state;
+}
+
+void set_gear_CAN_signal(int gear){
+  body_states_msg.Body_Gear = gear;
+}
+
+

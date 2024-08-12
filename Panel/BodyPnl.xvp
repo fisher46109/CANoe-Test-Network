@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Body">
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X6968126eeffc1e40c5eaf17e863e1f157243" ControlName="Combo Box 1">
+      <Property Name="Name">X6968126eeffc1e40c5eaf17e863e1f157243</Property>
+      <Property Name="Size">73, 21</Property>
+      <Property Name="Location">238, 390</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionSize">33, 21</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="DescriptionText">Gear:</Property>
+      <Property Name="UsedValueTable">PhysicalValue</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;Gear;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xeb08b62ee26d8e437deb3dee1301e8612037" ControlName="Switch / Indicator 5">
+      <Property Name="Name">Xeb08b62ee26d8e437deb3dee1301e8612037</Property>
+      <Property Name="Size">34, 44</Property>
+      <Property Name="Location">234, 307</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;HandbrakeSwitch;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X4f7a53c8ef34de4f49e9e4fe0853b8dcffac" ControlName="Track Bar 2">
+      <Property Name="Name">X4f7a53c8ef34de4f49e9e4fe0853b8dcffac</Property>
+      <Property Name="Size">31, 48</Property>
+      <Property Name="Location">237, 235</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="MaximumDouble">2</Property>
+      <Property Name="LargeChangeDouble">1</Property>
+      <Property Name="MaximumSize">31, 100000</Property>
+      <Property Name="Maximum">2</Property>
+      <Property Name="LargeChange">1</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;IgnitionStatus;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xb5898de8e45e5e4587eb035edf00a0459058" ControlName="LED Control 15">
+      <Property Name="Name">Xb5898de8e45e5e4587eb035edf00a0459058</Property>
+      <Property Name="Size">17, 17</Property>
+      <Property Name="Location">448, 685</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;RightParkingLightState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xfe9767b8e0ab0e4b2bebe93efe3b55b24863" ControlName="LED Control 14">
+      <Property Name="Name">Xfe9767b8e0ab0e4b2bebe93efe3b55b24863</Property>
+      <Property Name="Size">17, 17</Property>
+      <Property Name="Location">103, 685</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;LeftParkingLightState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X08a5017aefe32e4b69eb38de24fd11ea8894" ControlName="LED Control 13">
+      <Property Name="Name">X08a5017aefe32e4b69eb38de24fd11ea8894</Property>
+      <Property Name="Size">44, 44</Property>
+      <Property Name="Location">156, 635</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;Red&lt;/Color&gt;</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;RearFogLightState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X6a72d908ed690e481deaa4ae2142f9e3ff23" ControlName="LED Control 12">
+      <Property Name="Name">X6a72d908ed690e481deaa4ae2142f9e3ff23</Property>
+      <Property Name="Size">33, 33</Property>
+      <Property Name="Location">146, 95</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;FrontFogLightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc6e2f738e0bb0e491aeb56be8fc5f2e03645" ControlName="LED Control 11">
+      <Property Name="Name">Xc6e2f738e0bb0e491aeb56be8fc5f2e03645</Property>
+      <Property Name="Size">33, 33</Property>
+      <Property Name="Location">395, 95</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;FrontFogLightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xe8cce4b7ef55be4a92ebaace112cf1b8862d" ControlName="LED Control 10">
+      <Property Name="Name">Xe8cce4b7ef55be4a92ebaace112cf1b8862d</Property>
+      <Property Name="Size">17, 17</Property>
+      <Property Name="Location">103, 58</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;LeftParkingLightState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X6f4d3359ebee4e4757e8074e7b0e9eb0b2f0" ControlName="LED Control 9">
+      <Property Name="Name">X6f4d3359ebee4e4757e8074e7b0e9eb0b2f0</Property>
+      <Property Name="Size">30, 30</Property>
+      <Property Name="Location">90, 22</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">Rectangle</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;LB_LightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X60ff5472e84e1e4661e9ac3ead2c68131d21" ControlName="LED Control 8">
+      <Property Name="Name">X60ff5472e84e1e4661e9ac3ead2c68131d21</Property>
+      <Property Name="Size">53, 53</Property>
+      <Property Name="Location">126, 22</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">Rectangle</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;HB_LightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X5381aed6e7513e4448eae4ee250284416024" ControlName="LED Control 7">
+      <Property Name="Name">X5381aed6e7513e4448eae4ee250284416024</Property>
+      <Property Name="Size">17, 17</Property>
+      <Property Name="Location">448, 58</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;RightParkingLightState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xe86954c5e2fdce41a2e9effeba13fa075e17" ControlName="LED Control 6">
+      <Property Name="Name">Xe86954c5e2fdce41a2e9effeba13fa075e17</Property>
+      <Property Name="Size">30, 30</Property>
+      <Property Name="Location">448, 22</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">Rectangle</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;LB_LightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X41627965e5befe4a1aebb0feac4f457cc4e1" ControlName="LED Control 5">
+      <Property Name="Name">X41627965e5befe4a1aebb0feac4f457cc4e1</Property>
+      <Property Name="Size">53, 53</Property>
+      <Property Name="Location">389, 22</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">Rectangle</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 131, 181, 241&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 131, 181, 241</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;HB_LightsState;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xbbd01284ec347e4c82e9298e3dcb5a160504" ControlName="Switch / Indicator 4">
+      <Property Name="Name">Xbbd01284ec347e4c82e9298e3dcb5a160504</Property>
+      <Property Name="Size">23, 30</Property>
+      <Property Name="Location">135, 177</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;HB_ConstSwitch;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ButtonControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X4a1f1ea6e0212e4e03eb421eb3328e28113f" ControlName="Button 1">
+      <Property Name="Name">X4a1f1ea6e0212e4e03eb421eb3328e28113f</Property>
+      <Property Name="Size">23, 23</Property>
+      <Property Name="Location">135, 213</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Text">Button</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;HB_BlinkSwitch;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xeeebd7bde5d94e4a59eb16cea7bbafdbcddc" ControlName="Switch / Indicator 3">
+      <Property Name="Name">Xeeebd7bde5d94e4a59eb16cea7bbafdbcddc</Property>
+      <Property Name="Size">23, 30</Property>
+      <Property Name="Location">43, 213</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;RearFogLightSwitch;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X10461616eb1ffe4c6dea702e33bf98a267a7" ControlName="Switch / Indicator 2">
+      <Property Name="Name">X10461616eb1ffe4c6dea702e33bf98a267a7</Property>
+      <Property Name="Size">23, 30</Property>
+      <Property Name="Location">70, 213</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;FrontFogLightSwitch;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X241e212ae4dc8e46e7ebd74eb62c2b4a6d6b" ControlName="Track Bar 1">
+      <Property Name="Name">X241e212ae4dc8e46e7ebd74eb62c2b4a6d6b</Property>
+      <Property Name="Size">65, 31</Property>
+      <Property Name="Location">43, 182</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="MaximumDouble">2</Property>
+      <Property Name="LargeChangeDouble">1</Property>
+      <Property Name="MaximumSize">100000, 31</Property>
+      <Property Name="Maximum">2</Property>
+      <Property Name="LargeChange">1</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;LightsSwitch;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.ComboBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xdae9fbe9ecd06e49e9eaf08e7896f767c901" ControlName="DriveSelectCB">
+      <Property Name="Name">Xdae9fbe9ecd06e49e9eaf08e7896f767c901</Property>
+      <Property Name="Size">183, 21</Property>
+      <Property Name="Location">324, 241</Property>
+      <Property Name="DisplayLabel">Left</Property>
+      <Property Name="DescriptionSize">65, 21</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="DescriptionText">DriveSelect:</Property>
+      <Property Name="UsedValueTable">PhysicalValue</Property>
+      <Property Name="SymbolConfiguration">8;16;BodyState;;;DriveSelect;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.SwitchControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xc13b1e64e7a04e448eea479edfa3e72b2a91" ControlName="Switch / Indicator 1">
+      <Property Name="Name">Xc13b1e64e7a04e448eea479edfa3e72b2a91</Property>
+      <Property Name="Size">37, 49</Property>
+      <Property Name="Location">317, 174</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;HazardLightsSwitch;1;;;-1;;;Value;;;0</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="Epsilon">0</Property>
+      <Property Name="Increment">1</Property>
+      <Property Name="StartValue">0</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;</Property>
+      <Property Name="SwitchValuesVT">1;2;0/Lower/0;1/Lower/1</Property>
+      <Property Name="SwitchValues">1;2;0;1</Property>
+      <Property Name="SwitchValuesRx">1;2;0;1</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X3780602be7834e4e0ce9d4cebc463e07b027" ControlName="LED Control 4">
+      <Property Name="Name">X3780602be7834e4e0ce9d4cebc463e07b027</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">493, 629</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleRight</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 180, 83, 3&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 180, 83, 3</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;RR_Blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xde3e1428ed756e4a1cea7bbe4a0a8dccb63e" ControlName="LED Control 3">
+      <Property Name="Name">Xde3e1428ed756e4a1cea7bbe4a0a8dccb63e</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">43, 629</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleLeft</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 180, 83, 3&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 180, 83, 3</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;RL_Blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X059afec4e6265e4be9e840ee593c23b92427" ControlName="LED Control 1">
+      <Property Name="Name">X059afec4e6265e4be9e840ee593c23b92427</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">493, 103</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleRight</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 180, 83, 3&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 180, 83, 3</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;FR_Blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.LEDControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Xa4bc8e83e061ce4609e9ea8e02ccdb825917" ControlName="LED Control 2">
+      <Property Name="Name">Xa4bc8e83e061ce4609e9ea8e02ccdb825917</Property>
+      <Property Name="Size">50, 50</Property>
+      <Property Name="Location">43, 103</Property>
+      <Property Name="ReadOnlyControl">True</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="TabStopActive">False</Property>
+      <Property Name="LEDStyle">TriangleLeft</Property>
+      <Property Name="SwitchValuesVTXml">&lt;Version&gt;2&lt;/Version&gt;&lt;Count&gt;2&lt;/Count&gt;&lt;RxValue&gt;0&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;0&lt;/TxValue&gt;&lt;Color&gt;255, 152, 152, 152&lt;/Color&gt;&lt;RxValue&gt;1&lt;/RxValue&gt;&lt;LowerUpper&gt;Lower&lt;/LowerUpper&gt;&lt;TxValue&gt;1&lt;/TxValue&gt;&lt;Color&gt;255, 180, 83, 3&lt;/Color&gt;</Property>
+      <Property Name="UsedLEDColorOn">255, 180, 83, 3</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;FL_Blinker;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X5b1377c6e4152e4460eb5fdea3aad8811988" ControlName="TurnSignalSwitch">
+      <Property Name="Name">X5b1377c6e4152e4460eb5fdea3aad8811988</Property>
+      <Property Name="Size">31, 109</Property>
+      <Property Name="Location">280, 174</Property>
+      <Property Name="BorderStyle">FixedSingle</Property>
+      <Property Name="Orientation">Vertical</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="MaximumDouble">1</Property>
+      <Property Name="MinimumDouble">-1</Property>
+      <Property Name="LargeChangeDouble">1</Property>
+      <Property Name="MaximumSize">31, 100000</Property>
+      <Property Name="Minimum">-1</Property>
+      <Property Name="Maximum">1</Property>
+      <Property Name="LargeChange">1</Property>
+      <Property Name="SymbolConfiguration">8;16;Blinkers;;;BlinkerSwitch;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">597, 774</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">255, 165, 165, 165</Property>
+  </Object>
+</Panel>

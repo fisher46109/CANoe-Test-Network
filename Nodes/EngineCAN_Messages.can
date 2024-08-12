@@ -1,0 +1,44 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  
+}
+
+variables
+{
+  message Eng_States engine_states_msg;
+}
+
+void set_empty_engine_states_msg(){
+  int i;
+  for (i = 0; i < engine_states_msg.dlc; i++){
+    engine_states_msg.byte(i) = 0x00;  
+  }
+}
+
+void set_engine_running_can_signal(int value){
+  engine_states_msg.Eng_Running = value;
+}
+
+void set_check_engine_can_signal(int value){
+  engine_states_msg.Eng_Check_Eng = value;
+}
+
+void set_low_oil_press_can_signal(int value){
+  engine_states_msg.Eng_Oil_Press_Warn = value;
+}
+
+void set_rpm_can_signal(int value){
+  engine_states_msg.Eng_RPM = value/30;
+}
+
+void set_speed_can_signal(int value){
+  engine_states_msg.Eng_VehicleSpeed = value;
+}
+
+void set_clt_can_signal(double value){
+  engine_states_msg.Eng_CLT = (int)value;
+}
+
+
+

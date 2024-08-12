@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Panel Type="Vector.CANalyzer.Panels.PanelSerializer, Vector.CANalyzer.Panels.Serializer, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null">
+  <Object Type="Vector.CANalyzer.Panels.Runtime.Panel, Vector.CANalyzer.Panels.Common, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="Panel" ControlName="Engine">
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X68848259e2fe0e4918e9dc1eff24b7eb95fa" ControlName="Static Text 1">
+      <Property Name="Name">X68848259e2fe0e4918e9dc1eff24b7eb95fa</Property>
+      <Property Name="Size">137, 15</Property>
+      <Property Name="Location">15, 76</Property>
+      <Property Name="Text">Accelerator Pedal Position</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.TrackBarControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X8b907bfde6d6ae4936ea464efb2e058b36cf" ControlName="Track Bar 1">
+      <Property Name="Name">X8b907bfde6d6ae4936ea464efb2e058b36cf</Property>
+      <Property Name="Size">284, 41</Property>
+      <Property Name="Location">190, 61</Property>
+      <Property Name="DisplayMinMax">True</Property>
+      <Property Name="TickStyle">None</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="MaximumDouble">100</Property>
+      <Property Name="LargeChangeDouble">10</Property>
+      <Property Name="MaximumSize">100000, 41</Property>
+      <Property Name="Maximum">100</Property>
+      <Property Name="LargeChange">10</Property>
+      <Property Name="SymbolConfiguration">8;16;EngineState;;;APP_sens;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X7946e1b4e2077e4f13e837eedccb66c62de9" ControlName="CheckEngineSwt">
+      <Property Name="Name">X7946e1b4e2077e4f13e837eedccb66c62de9</Property>
+      <Property Name="Size">126, 17</Property>
+      <Property Name="Location">15, 155</Property>
+      <Property Name="Text">Force Check Engine</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="SymbolConfiguration">8;16;EngineState;;;CheckEngineSwt;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.CheckBoxControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X60ae1756e3cd6e4aace9a61e8977692acc27" ControlName="LowOilPressSwt">
+      <Property Name="Name">X60ae1756e3cd6e4aace9a61e8977692acc27</Property>
+      <Property Name="Size">134, 17</Property>
+      <Property Name="Location">172, 155</Property>
+      <Property Name="Text">Force low oil pressure</Property>
+      <Property Name="TabIndex">0</Property>
+      <Property Name="SymbolConfiguration">8;16;EngineState;;;LowOilPressSwt;1;;;-1;;;Value;;;0</Property>
+    </Object>
+    <Object Type="Vector.CANalyzer.Panels.Design.StaticTextControl, Vector.CANalyzer.Panels.CommonControls, Version=18.0.150.0, Culture=neutral, PublicKeyToken=null" Name="X81c16dcde4276e428ee8f0ae47e2b20c45c5" ControlName="EngRunningLabel">
+      <Property Name="Name">X81c16dcde4276e428ee8f0ae47e2b20c45c5</Property>
+      <Property Name="Size">550, 15</Property>
+      <Property Name="Location">15, 12</Property>
+      <Property Name="Text">Engine:</Property>
+    </Object>
+    <Property Name="Name">Panel</Property>
+    <Property Name="Size">580, 189</Property>
+    <Property Name="Location">0, 0</Property>
+    <Property Name="BackColor">255, 165, 165, 165</Property>
+  </Object>
+</Panel>

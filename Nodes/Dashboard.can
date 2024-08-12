@@ -1,0 +1,45 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+  #include "DashboardFunctions.can"
+}
+
+variables
+{
+  int ignition_status;
+  int check_engine_status;
+}
+
+on start {
+  openPanel("Dashboard");
+  set_DS_color(3);
+}
+
+on message Body_Blink {
+  set_blinkers(this.Body_Blinker);
+}
+
+on message Body_States {
+  ignition_status = this.Body_Ign_Status;
+  set_DS_color(this.Body_Drive_Select); 
+  handle_baterry_voltage_icon(ignition_status, this.Body_Baterry_Voltage);
+  set_icon_state(parking_lights_icon, this.Body_Position_Lights);
+  set_icon_state(parking_lights_icon, this.Body_Position_Lights);
+  set_icon_state(LB_icon, this.Body_Low_Beam);
+  set_icon_state(HB_icon, this.Body_High_Beam);
+  set_icon_state(front_fog_icon, this.Body_Front_Fog);
+  set_icon_state(rear_fog_icon, this.Body_Rear_Fog);
+  set_icon_state(handbrake_icon, this.Body_Handbrake);
+  @sysvar::Dashboard::FuelLevel = this.Body_Fuel_Level;
+  handle_fuel_warn_icon(ignition_status, this.Body_Fuel_Level);
+}
+
+on message Eng_States{
+    handle_check_engine_icon(ignition_status, this.Eng_Check_Eng); 
+    handle_oil_press_icon(ignition_status, this.Eng_Oil_Press_Warn);
+    @sysvar::Dashboard::RPM = this.Eng_RPM * 30;
+    @sysvar::Dashboard::Speed = this.Eng_VehicleSpeed;
+    @sysvar::Dashboard::CLT = this.Eng_CLT;
+    handle_CLT_icon(ignition_status, this.Eng_CLT);
+}
+

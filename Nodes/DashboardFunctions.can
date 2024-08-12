@@ -1,0 +1,122 @@
+﻿/*@!Encoding:65001*/
+includes
+{
+}
+
+variables
+{ 
+  const char max_str_len = 30;
+  char oil_press_icon[max_str_len] = "oil_press_icon";
+  char check_engine_icon[max_str_len] = "check_engine_icon";
+  char baterry_voltage_icon[max_str_len] ="baterry_voltage_icon";
+  char CLT_icon[max_str_len] = "CLT_icon";
+  char parking_lights_icon[max_str_len] = "parking_lights_icon";
+  char LB_icon[max_str_len] = "LB_icon";
+  char HB_icon[max_str_len] = "HB_icon";
+  char front_fog_icon[max_str_len] = "front_fog_icon";
+  char rear_fog_icon[max_str_len] = "rear_fog_icon";
+  char handbrake_icon[max_str_len] = "handbrake_icon";
+  char fuel_warn_icon[max_str_len] = "fuel_warn_icon";
+  
+  const int voltage_tres = 13000; // voltage in mv (under it turn baterry icon on)
+  int clt_tres = 110; // coolant temperature (above it turn CLT_icon on) 
+  int fuel_tres = 20; // fuel level (under it turn fuel level icon on)
+  int calculated_baterry_voltage; 
+}
+
+void set_DS_color(int DS_value){
+  switch(DS_value){
+    case 0: //Comfort - Green
+      SetControlBackColor("Dashboard", "col1", MakeRGB(0,128,0));
+      SetControlBackColor("Dashboard", "col2", MakeRGB(0,128,0));
+      SetControlBackColor("Dashboard", "col3", MakeRGB(0,128,0));
+      SetControlBackColor("Dashboard", "col4", MakeRGB(0,128,0));
+    break;    
+    case 1: //Auto - Blue
+      SetControlBackColor("Dashboard", "col1", MakeRGB(0,0,255));
+      SetControlBackColor("Dashboard", "col2", MakeRGB(0,0,255));
+      SetControlBackColor("Dashboard", "col3", MakeRGB(0,0,255));
+      SetControlBackColor("Dashboard", "col4", MakeRGB(0,0,255));
+    break; 
+    case 2: //Dynamic - Red
+      SetControlBackColor("Dashboard", "col1", MakeRGB(255,0,0));
+      SetControlBackColor("Dashboard", "col2", MakeRGB(255,0,0));
+      SetControlBackColor("Dashboard", "col3", MakeRGB(255,0,0));
+      SetControlBackColor("Dashboard", "col4", MakeRGB(255,0,0));
+    break;    
+    case 3: //Auto - Grey
+      SetControlBackColor("Dashboard", "col1", MakeRGB(165,165,165));
+      SetControlBackColor("Dashboard", "col2", MakeRGB(165,165,165));
+      SetControlBackColor("Dashboard", "col3", MakeRGB(165,165,165));
+      SetControlBackColor("Dashboard", "col4", MakeRGB(165,165,165));
+    break;   
+  }
+}
+
+void set_blinkers(int blinker_value){
+  if (blinker_value == 3){
+    @sysvar::Dashboard::left_blinker = 1;
+    @sysvar::Dashboard::right_blinker = 1;
+  }
+  else if (blinker_value == 2){
+    @sysvar::Dashboard::left_blinker = 0;
+    @sysvar::Dashboard::right_blinker = 1;
+  }
+  else if (blinker_value == 1){
+    @sysvar::Dashboard::left_blinker = 1;
+    @sysvar::Dashboard::right_blinker = 0;
+  }
+  else {
+    @sysvar::Dashboard::left_blinker = 0;
+    @sysvar::Dashboard::right_blinker = 0;
+  }
+}
+
+void set_icon_state(char icon_name[], int state){
+  if (state == 0) setControlVisibility("Dashboard", icon_name, 0);  
+  else setControlVisibility("Dashboard", icon_name, 1);
+}
+
+void handle_baterry_voltage_icon(int ign_status, int baterry_voltage){
+  calculated_baterry_voltage = baterry_voltage * 60;
+  if (ign_status <= 1) set_icon_state(baterry_voltage_icon, ign_status);
+  else {
+    if (calculated_baterry_voltage < voltage_tres) set_icon_state(baterry_voltage_icon, 1);
+    else set_icon_state(baterry_voltage_icon, 0);
+  }
+}
+
+void handle_check_engine_icon(int ign_status, int check_engine_value){
+  if (ign_status == 0) set_icon_state(check_engine_icon, 0);
+  else if (ign_status == 1) set_icon_state(check_engine_icon, 1);
+  else {
+    if (check_engine_value == 1) set_icon_state(check_engine_icon, 1);
+    else set_icon_state(check_engine_icon, 0);
+  }
+}
+
+void handle_oil_press_icon(int ign_status, int oil_press_value){
+  if (ign_status == 0) set_icon_state(oil_press_icon, 0);
+  else if (ign_status == 1) set_icon_state(oil_press_icon, 1);
+  else {
+    if (oil_press_value == 1) set_icon_state(oil_press_icon, 1);
+    else set_icon_state(oil_press_icon, 0);
+  }
+}
+
+void handle_CLT_icon(int ign_status, int clt_value){
+  if (ign_status == 0) set_icon_state(CLT_icon, 0);
+  else if (ign_status == 1) set_icon_state(CLT_icon, 1);
+  else {
+    if (clt_value > clt_tres) set_icon_state(CLT_icon, 1);
+    else set_icon_state(CLT_icon, 0);
+  }
+}
+
+void handle_fuel_warn_icon(int ign_status, int fuel_value){
+  if (ign_status == 0) set_icon_state(fuel_warn_icon, 0);
+  else {
+    if (fuel_value < fuel_tres) set_icon_state(fuel_warn_icon, 1);
+    else set_icon_state(fuel_warn_icon, 0);
+  }
+}
