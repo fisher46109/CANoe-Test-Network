@@ -23,6 +23,19 @@
 - Fuel consumption (and the simulated decrease in fuel level in the Body module) is calculated based on the accelerator pedal position and the current gear.
 Additionally, it is possible to simulate engine failure or low oil pressure using corresponding switches.
 
+### Messages:
+
+#### - Eng_States (0x100)
+![EngineStatesLayout](Images/README/EngineLayout.jpg)
+Signals:
+- Eng_APP (8bit)
+- Eng_CLT (8bit)
+- Eng_RPM (8bit)
+- Eng_VehicleSpeed (8bit)
+- Eng_Running (1bit)
+- Eng_Check_Engine (1bit)
+- Eng_Oil_Press_Warn (1bit)
+
 ## 2) Body
 ### Control panel:
  ![BodyControlPanel](Images/README/BodyPanel.jpg)
@@ -54,6 +67,28 @@ Additionally, it is possible to simulate engine failure or low oil pressure usin
 - The drive mode selector allows you to choose between Comfort, Auto, Dynamic, and Individual modes.
 - The gear selector can be set to N, 1, 2, 3, 4, 5, 6, R.
 
+### Messages:
+
+#### - BodyStates (0x200)
+![BodyStatesLayout](Images/README/BodyLayout.jpg)
+Signals:
+- Body_Baterry_Voltage (8bit)
+- Body_Fuel_Level (8bit)
+- Body_Drive_selet (8bit)
+- Body_Position_Lights (2bit)
+- Body_Gear (3bit)
+- Body_Ign_Status (2bit)
+- Body_Handbrake (1bit)
+- Body_Low_Beam (1bit)
+- Body_High_Beam (1bit)
+- Body_Front_Fog (1bit)
+- Body_Rear_Fog (1bit)
+
+#### - BodyBlink (0x201)
+![BodyBlinkLayout](Images/README/BlinkersLayout.jpg)
+Signals:
+- Body_Blinker (2bit)
+
 ## 3) Dashboard 
 ### Control panel:
  ![DashboardControlPanel](Images/README/DashboardPanel.jpg)
@@ -83,6 +118,10 @@ Additionally, it is possible to simulate engine failure or low oil pressure usin
 - The remaining icons are controlled directly by receiving an on/off signal from the CAN bus.
 - Signals for engine RPM, vehicle speed, and engine temperature are sent from the Engine module.
 - The fuel level signal is sent from the Body module.
+
+### Messages
+
+The Dashboard module does not send any signals, it only receives them from Body and Engine modules.
 
 ## AEC control panel 
 Under development
