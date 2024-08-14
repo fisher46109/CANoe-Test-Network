@@ -78,6 +78,7 @@ on sysvar EngineState::LowOilPressSwt{
 
 on sysvar EngineState::APP_sens {
   app_sensor = @this;
+  set_app_can_signal(app_sensor);
 }
 // Functions //////////////////////////////////////////////////////////////////
 void wake_up_systems(void){

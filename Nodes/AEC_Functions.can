@@ -1,0 +1,70 @@
+﻿/*@!Encoding:65001*/
+includes
+{  
+}
+
+variables
+{
+   //Auto mode configs
+  const int auto_close_RPM = 2000;
+  const int auto_close_APP = 40;
+  
+  const int auto_open_RPM = 5000;
+  const int auto_open_APP = 60;
+  
+   //Individual mode configs
+  int ind_close_RPM;
+  int ind_close_condition;
+  int ind_close_APP;
+  
+  int ind_open_RPM;
+  int ind_open_condition;
+  int ind_open_APP;
+}
+
+
+void set_valve(int open_state){
+  if (open_state == 1) setPictureBoxImage("AEC", "valve_icon", "C:\\Users\\Public\\Documents\\Vector\\CANoe\\Projects\\Test_CAE\\Images\\Open.jpg");
+  else if (open_state == 2) setPictureBoxImage("AEC", "valve_icon", "C:\\Users\\Public\\Documents\\Vector\\CANoe\\Projects\\Test_CAE\\Images\\PartOpen.jpg");
+  else setPictureBoxImage("AEC", "valve_icon", "C:\\Users\\Public\\Documents\\Vector\\CANoe\\Projects\\Test_CAE\\Images\\Close.jpg");
+}
+
+void control_valve(int DS_val, int RPM_val, int APP_val){
+  if (DS_val == 0) { // Comfort  
+    set_valve(0);
+  }
+  if (DS_val == 1) { // Auto
+    handle_auto_mode(RPM_val, APP_val);
+  }
+  if (DS_val == 2) { // Dynamic
+    set_valve(1);
+  }
+  if (DS_val == 3) { // Individual
+    set_valve(handle_individual_mode(RPM_val, APP_val));
+  }
+}
+
+handle_auto_mode(int RPM_val, int APP_val){  
+  if ((RPM_val < auto_close_RPM) && (APP_val < auto_close_APP)) set_valve(0);
+  else if ((RPM_val > auto_open_RPM) && (APP_val > auto_open_APP)) set_valve(1);
+  else set_valve(2);
+}
+
+int handle_individual_mode(int RPM_val, int APP_val){
+  // Close conditions
+  if(ind_close_condition == 0){ // AND
+    if ((RPM_val < ind_close_RPM) && (APP_val < ind_close_APP)) return 0;
+  }
+  else { // OR
+    if ((RPM_val < ind_close_RPM) || (APP_val < ind_close_APP)) return 0;
+  }
+  // Open conditions (higher priority)
+  if(ind_open_condition == 0){ // AND
+    if ((RPM_val > ind_open_RPM) && (APP_val > ind_open_APP)) return 1;
+  }
+  else { // OR
+    if ((RPM_val > ind_open_RPM) || (APP_val > ind_open_APP)) return 1;
+  }
+  
+  return 2;
+}

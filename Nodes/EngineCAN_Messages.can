@@ -40,5 +40,9 @@ void set_clt_can_signal(double value){
   engine_states_msg.Eng_CLT = (int)value;
 }
 
+void set_app_can_signal(int value){
+  engine_states_msg.Eng_APP = value;
+}
+
 
 

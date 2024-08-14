@@ -1,11 +1,83 @@
 ﻿/*@!Encoding:65001*/
 includes
 {
-  
+  #include "AEC_Functions.can"
 }
 
 variables
 {
+  mstimer updatingTimer;
   
+  int ignition_status;
+  int DS_status;
+  int act_rpm;
+  int act_app;
+}
+
+on start {
+  openPanel("AEC");
+  setTimer(updatingTimer, 100);
+  read_inputs();
+}
+
+on timer updatingTimer {
+  update_inputs();
+  if (ignition_status < 2) set_valve(0);
+  else {
+    control_valve(DS_status, act_rpm, act_app);
+  }
+  setTimer(this, 100);
+}
+
+on message Body_States {
+  ignition_status = this.Body_Ign_Status;
+  DS_status = this.Body_Drive_Select; 
+}
+
+on message Eng_States{
+  act_rpm = this.Eng_RPM * 30;
+  act_app = this.Eng_APP; 
+}
+
+void read_inputs(void){
+  ind_close_RPM = @sysvar::AEC::RPM_close;
+  ind_close_APP = @sysvar::AEC::APP_close;
+  ind_open_RPM = @sysvar::AEC::RPM_open;
+  ind_open_APP = @sysvar::AEC::APP_open;
+}
+
+void update_inputs(void){
+  @sysvar::AEC::RPM_close = ind_close_RPM;
+  @sysvar::AEC::APP_close = ind_close_APP;
+  @sysvar::AEC::RPM_open = ind_open_RPM;
+  @sysvar::AEC::APP_open = ind_open_APP;
+}
+
+on sysvar AEC::RPM_close {
+  if (@this < ind_open_RPM) ind_close_RPM = @this;
+  else ind_close_RPM = ind_open_RPM - 1; 
+  if (ind_close_RPM < 0) ind_close_RPM = 0;
+  if (ind_close_RPM > 7000) ind_close_RPM = 7000;
+}
+
+on sysvar AEC::APP_close {
+  if (@this < ind_open_APP) ind_close_APP = @this;
+  else ind_close_APP = ind_open_APP - 1;
+  if (ind_close_APP < 0) ind_close_APP = 0;
+  if (ind_close_APP > 100) ind_close_APP = 100;
+}
+
+on sysvar AEC::RPM_open {
+  if (@this > ind_close_RPM) ind_open_RPM = @this;
+  else ind_open_RPM = ind_close_RPM + 1;
+  if (ind_open_RPM < 0) ind_open_RPM = 0;
+  if (ind_open_RPM > 7000) ind_open_RPM = 7000;
+}
+
+on sysvar AEC::APP_open {
+  if (@this > ind_close_APP) ind_open_APP = @this;
+  else ind_open_APP = ind_close_APP + 1;
+  if (ind_open_APP < 0) ind_open_APP = 0;
+  if (ind_open_APP > 100) ind_open_APP = 100;
 }
 

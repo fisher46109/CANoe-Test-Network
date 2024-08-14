@@ -33,13 +33,13 @@ NS_ :
 
 BS_:
 
-BU_: Body_Node EngineNode
+BU_: Body Engine
 
 
-BO_ 513 Body_Blink: 2 Body_Node
+BO_ 513 Body_Blink: 2 Body
  SG_ Body_Blinker : 0|2@1+ (1,0) [0|3] "-" Vector__XXX
 
-BO_ 512 Body_States: 8 Body_Node
+BO_ 512 Body_States: 8 Body
  SG_ Body_Gear : 27|3@1+ (1,0) [0|7] "" Vector__XXX
  SG_ Body_Rear_Fog : 36|1@1+ (1,0) [0|1] "-" Vector__XXX
  SG_ Body_Position_Lights : 30|2@1+ (1,0) [0|1] "-" Vector__XXX
@@ -52,7 +52,7 @@ BO_ 512 Body_States: 8 Body_Node
  SG_ Body_Drive_Select : 16|8@1+ (1,0) [0|255] "-" Vector__XXX
  SG_ Body_Baterry_Voltage : 0|8@1+ (6,0) [0|1530] "mV" Vector__XXX
 
-BO_ 256 Eng_States: 8 EngineNode
+BO_ 256 Eng_States: 8 Engine
  SG_ Eng_VehicleSpeed : 24|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ Eng_Running : 39|1@1+ (1,0) [0|1] "-" Vector__XXX
  SG_ Eng_RPM : 16|8@1+ (30,0) [0|7650] "RPM" Vector__XXX
