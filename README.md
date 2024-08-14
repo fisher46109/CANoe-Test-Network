@@ -123,5 +123,29 @@ Signals:
 
 The Dashboard module does not send any signals, it only receives them from Body and Engine modules.
 
-## AEC control panel 
-Under development
+## AEC 
+### Control panel:
+![AECControlPanel](Images/README/AECPanel.jpg)
+1) Threshold RPM for closing
+2) Logical condition for closing (and/or)
+3) Threshold value of accelerator pedal depression for closing
+4) Threshold RPM for opening
+5) Logical condition for opening (and/or)
+6) Threshold value of accelerator pedal depression for opening
+
+### Calculations:
+Based on signals from the Body and Engine modules, three throttle opening levels are set:
+![ValveStates](Images/README/ValveStates.jpg)
+1) Closed
+2) Slightly open
+3) Open
+   
+- When the engine is off, the exhaust valve is closed.
+- In Comfort mode, the exhaust valve is closed regardless of other parameters.
+- In Dynamic mode, the exhaust valve is open regardless of other parameters.
+- In Auto mode, the exhaust valve is:
+  a) Closed if RPM < 2000 and APP < 40%
+  b) Open if RPM > 5000 and APP > 60%
+  c) Slightly open in all other cases
+- In Individual mode, the exhaust valve is set in the same way as in Auto, but the RPM and APP values (and the logical condition connecting them (and/or)) can be adjusted by the user.
+Additionally, the entered values are protected against the input of incorrect values.
