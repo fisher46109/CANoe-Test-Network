@@ -144,8 +144,8 @@ Based on signals from the Body and Engine modules, three throttle opening levels
 - In Comfort mode, the exhaust valve is closed regardless of other parameters.
 - In Dynamic mode, the exhaust valve is open regardless of other parameters.
 - In Auto mode, the exhaust valve is:
-  a) Closed if RPM < 2000 and APP < 40%
-  b) Open if RPM > 5000 and APP > 60%
-  c) Slightly open in all other cases
+  - Closed if RPM < 2000 and APP < 40%
+  - Open if RPM > 5000 and APP > 60%
+  - Slightly open in all other cases
 - In Individual mode, the exhaust valve is set in the same way as in Auto, but the RPM and APP values (and the logical condition connecting them (and/or)) can be adjusted by the user.
 Additionally, the entered values are protected against the input of incorrect values.
