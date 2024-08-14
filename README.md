@@ -123,7 +123,7 @@ Signals:
 
 The Dashboard module does not send any signals, it only receives them from Body and Engine modules.
 
-## AEC 
+## 4) AEC 
 ### Control panel:
 ![AECControlPanel](Images/README/AECPanel.jpg)
 1) Threshold RPM for closing
